@@ -14,14 +14,14 @@ then
     cd /opt/
     virtualenv hpfeeds-logger
     . hpfeeds-logger/bin/activate
-    pip install hpfeeds-logger==0.0.7.3
+    pip install git+https://github.com/MattCarothers/hpfeeds-logger
 else
     echo "It looks like hpfeeds-logger is already installed. Moving on to configuration."
 fi
 
 IDENT=hpfeeds-logger-json
 SECRET=`python -c 'import uuid;print str(uuid.uuid4()).replace("-","")'`
-CHANNELS='amun.events,dionaea.connections,dionaea.capture,glastopf.events,beeswarm.hive,kippo.sessions,cowrie.sessions,conpot.events,snort.alerts,suricata.events,wordpot.events,shockpot.events,p0f.events,elastichoney.events'
+CHANNELS='amun.events,dionaea.connections,dionaea.capture,glastopf.events,beeswarm.hive,kippo.sessions,cowrie.sessions,conpot.events,snort.alerts,suricata.events,wordpot.events,shockpot.events,p0f.events,elastichoney.events,fog.events'
 
 cat > /opt/hpfeeds-logger/json.json <<EOF
 {
@@ -43,7 +43,8 @@ cat > /opt/hpfeeds-logger/json.json <<EOF
         "wordpot.events",
         "shockpot.events",
         "p0f.events",
-        "elastichoney.events"
+        "elastichoney.events",
+        "fog.events"
     ],
     "log_file": "/var/log/mhn/mhn-json.log",
     "formatter_name": "json"
