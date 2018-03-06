@@ -21,7 +21,7 @@ fi
 
 IDENT=hpfeeds-logger-json
 SECRET=`python -c 'import uuid;print str(uuid.uuid4()).replace("-","")'`
-CHANNELS='amun.events,dionaea.connections,dionaea.capture,glastopf.events,beeswarm.hive,kippo.sessions,cowrie.sessions,conpot.events,snort.alerts,suricata.events,wordpot.events,shockpot.events,p0f.events,elastichoney.events,fog.events'
+CHANNELS='amun.events,dionaea.connections,dionaea.capture,glastopf.events,beeswarm.hive,kippo.sessions,cowrie.sessions,conpot.events,snort.alerts,suricata.events,wordpot.events,shockpot.events,p0f.events,elastichoney.events,uhp.events'
 
 cat > /opt/hpfeeds-logger/json.json <<EOF
 {
@@ -44,7 +44,7 @@ cat > /opt/hpfeeds-logger/json.json <<EOF
         "shockpot.events",
         "p0f.events",
         "elastichoney.events",
-        "fog.events"
+        "uhp.events"
     ],
     "log_file": "/var/log/mhn/mhn-json.log",
     "formatter_name": "json"
